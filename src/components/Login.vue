@@ -30,6 +30,12 @@
           Log in
         </button>
       </div>
+      <div class="register-item">
+        <p>
+          Don't have an account yet? Create one
+          <router-link class="router-link" to="/register">here</router-link>!
+        </p>
+      </div>
     </div>
   </div>
 </template>
@@ -54,7 +60,9 @@ export default {
           password: this.password,
         })
         .then((response) => {
-          console.log(response);
+          const token = response.data.success.token;
+          this.$cookie.set("usg_tkn", token, 1);
+          this.$router.push("/dashboard");
         })
         .catch(() => {
           this.error = true;
@@ -99,6 +107,18 @@ export default {
 
     input {
       color: #6d235c;
+    }
+
+    .register-item {
+      margin-top: 20px;
+
+      .router-link {
+        color: #6d235c !important;
+      }
+
+      .router-link:hover {
+        text-decoration: none;
+      }
     }
   }
 

@@ -4,7 +4,7 @@ import Home from "../views/Home.vue";
 import About from "../views/About.vue";
 import RegisterView from "../views/RegisterView.vue";
 import LoginView from "../views/LoginView.vue";
-
+import Dashboard from "../views/Dashboard.vue";
 Vue.use(VueRouter);
 
 const routes = [
@@ -30,6 +30,11 @@ const routes = [
     path: "/login",
     name: "Login",
     component: LoginView,
+  },
+  {
+    path: "/dashboard",
+    name: "Dashboard",
+    component: Dashboard,
   },
 ];
 
